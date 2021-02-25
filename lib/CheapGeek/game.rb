@@ -14,12 +14,15 @@ class Game
     @description = short_description
     @release_date = release_date
     @game_url = game_url
-    @@all_games << self
+    self.save
     end
 
-    def elf.all_games
+    def self.all_games
         @@all_games
     end
-
+    
+    def self.save
+        @@all_games << self
+    end
 
 end
