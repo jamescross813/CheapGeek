@@ -4,16 +4,16 @@ class Category
 
 attr_accessor :genre_name, :game_title
 
-@@all = []
+@@all_genres = []
 
     def initialize(genre, title)
         @genre_name = genre
         @game_title = title
-        @@all << self
+        @@all_genres << self
     end
 
-    def self.all
-        @@all
+    def self.all_genres
+        @@all_genres
     end
 
 end
