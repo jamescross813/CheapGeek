@@ -7,4 +7,6 @@ gemspec
 
 gem "pry"
 gem "awesome_print"
-
+gem "open-uri"
+gem "httparty"
+gem "rsepc"
