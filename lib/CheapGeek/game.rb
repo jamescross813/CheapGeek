@@ -25,4 +25,11 @@ class Game
         @@all_games << self
     end
 
+    def self.game_title
+        self.all_games.select {|game| game.title == self}
+    end
+
+    def self.new_game
+
+    end
 end
