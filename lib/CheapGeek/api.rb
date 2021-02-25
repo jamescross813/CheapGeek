@@ -10,21 +10,8 @@ class API
 
    def self.get_info(url)
     response = HTTParty.get(URL)
-    binding.pry
-    response.body
-   
-   end
-   
-   def get_title
-    titles = JSON.parse(self.get_info)
-    titles.collect do |title|
-      title["title"]  
-    end
-
-    
-   end
-
-  
+    response.body 
+   end  
 
 end
 
