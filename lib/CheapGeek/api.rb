@@ -3,6 +3,8 @@ require 'pry'
 require 'net/http'
 require 'open-uri'
 require 'json'
+require_relative './game.rb'
+require_relative './genre.rb'
  
 
 class API
