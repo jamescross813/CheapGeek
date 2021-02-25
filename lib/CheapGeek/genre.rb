@@ -20,4 +20,6 @@ attr_accessor :genre_name, :game_title
         @@all_genres << self
     end
 
+    # create array of games that match catergory
+
 end
