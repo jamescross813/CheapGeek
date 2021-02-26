@@ -2,6 +2,3 @@
 require './config/environment.rb'
 CLI.new.call
 
-"It's dangerous to go alone! What do you desire?"
-
-"What do you seek?"
