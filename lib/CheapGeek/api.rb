@@ -3,24 +3,22 @@ require 'pry'
 require 'net/http'
 require 'open-uri'
 require 'json'
-require_relative './game.rb'
-require_relative './genre.rb'
+require_relative './game'
+require_relative './genre'
  
 
 class API
-   URL = "https://freetogame.com/api/games"
+   #URL = "https://freetogame.com/api/games"
 
    def self.get_info(url)
-    response = HTTParty.get(URL)
-    response.body 
-   end  
-
-   def parse_json(body)
-    info = JSON.parse(self.get_info)
-    # binding.pry
+    response = HTTParty.get(url)
+    
+    
+     info = JSON.parse(response.body)
+     #binding.pry
     info.collect do |data|
         new_game = Game.new
-        new_game.name = data["title"]
+        new_game.title = data["title"]
         new_game.genre = data["genre"]
         new_game.description = data["short description"]
         new_game.release_date = data["release date"]
@@ -29,5 +27,7 @@ class API
     end
 
 end
+
+API.get_info("https://freetogame.com/api/games")
 
 #binding.pry
