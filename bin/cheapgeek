@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby
 
-puts "hello world"
+CLI.new.call
+
+"It's dangerous to go alone! What do you desire?"
+
+"What do you seek?"
