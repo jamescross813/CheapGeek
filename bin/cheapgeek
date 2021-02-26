@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require './lib/CheapGeek'
 CLI.new.call
 
 "It's dangerous to go alone! What do you desire?"
