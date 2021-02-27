@@ -5,7 +5,7 @@ require "httparty"
 require "rspec"
 
 require_relative '../lib/CheapGeek/version'
-# require_relative '../lib/CheapGeek/api'
+require_relative '../lib/CheapGeek/api'
 require_relative '../lib/CheapGeek/cli'
-# require_relative '../lib/CheapGeek/game'
-# require_relative '../lib/CheapGeek/catergory'
+require_relative '../lib/CheapGeek/game'
+require_relative '../lib/CheapGeek/catergory'
