@@ -2,7 +2,7 @@ require "pry"
 require "awesome_print"
 require "open-uri"
 require "httparty"
-require "rsepc"
+require "rspec"
 
 require_relative '../lib/CheapGeek/version'
 # require_relative '../lib/CheapGeek/api'

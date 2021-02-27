@@ -11,6 +11,6 @@ gem 'awesome_print'
 gem 'open-uri'
 gem 'httparty'
 gem 'rspec'
-gem 'bundle install'
+# gem 'bundle install'
 
 
