@@ -30,6 +30,6 @@ class Game
     end
 
     def self.new_game
-
+        
     end
 end
