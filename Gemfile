@@ -9,7 +9,7 @@ source "https://rubygems.org"
 gem 'pry'
 gem 'awesome_print'
 gem 'open-uri'
-gem 'httparty'
+gem 'net/http'
 gem 'rspec'
 gem "tty-prompt"
 # gem 'bundle install'
