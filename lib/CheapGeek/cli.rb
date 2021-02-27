@@ -17,14 +17,14 @@ class CLI
     end
 # ask for selection of genre
     def genre_menu 
-        input =nil
-        if input != "exit"
-            puts "What do you what do you seek?"
+        input = nil
+        while input != "exit"
+            puts "What do  you seek?"
             input= gets.strip
             case input
             when "1"
                 puts "What do you desire?"
-                game_list.genre(1)
+                game_list
             when "list"
                 genre_list
             else
@@ -38,7 +38,8 @@ class CLI
     end
 # chose game from returned list
     def game_menu
-        if input != "exit"
+        input = nil
+        while input != "exit"
             puts "There is no Earthly way of knowing...Unless you select the game."
             input= gets.strip
             case input
