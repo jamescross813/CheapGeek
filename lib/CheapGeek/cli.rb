@@ -2,7 +2,7 @@ require 'pry'
  
 class CLI
     attr_accessor :genre, :game
-
+    
     #  start with welcome
     def call 
         puts "It's dangerous to go alone!"
@@ -19,14 +19,19 @@ class CLI
     end
 # ask for selection of genre
     def genre_menu 
-            prompt.select("What do  you seek?", genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
+        # genre_list = ["Game A", "Game B", "Game C", "Game D"]
+        # prompt = TTY::Prompt.new
+        #     prompt.select("What do you seek?", genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
     end
 # return list of games with that catagory
     def game_list
+        #binding.pry
     @game = Genre.games
     end
 # chose game from returned list
     def game_menu
+        game_list = ["Game A", "Game B", "Game C", "Game D"]
+        prompt = TTY::Prompt.new
         prompt.select("What do you desire?", game_list, cycle: true, symbols: { marker: ">" }, filter: true)
     end
 # return information about requested game

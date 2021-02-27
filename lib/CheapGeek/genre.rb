@@ -20,10 +20,13 @@ attr_accessor :genre_name, :game_title
         @@all_genres << self
     end
 
-    def games
+    def self.games
         Game.all_games.select {|game| game.genre == self}
     end
 
-    # create array of games that match catergory
+   def new_game(name)
+    binding.pry
+    game = Game.new(name)
+   end
 
 end

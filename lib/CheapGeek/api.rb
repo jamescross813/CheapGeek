@@ -12,22 +12,20 @@ class API
 
    def self.get_info(url)
     response = HTTParty.get(URL)
-    
-    
-     info = JSON.parse(response.body)
-     binding.pry
+       info = JSON.parse(response.body)
     info.collect do |data|
         new_game = Game.new
         new_game.title = data["title"]
         new_game.genre = data["genre"]
-        new_game.description = data["short description"]
-        new_game.release_date = data["release date"]
-        new_game.game_url = data["game url"]
+        new_game.description = data["short_description"]
+        new_game.release_date = data["release_date"]
+        new_game.game_url = data["game_url"]
+        binding.pry
         end   
     end
 
 end
 
-API.get_info("https://freetogame.com/api/games")
+
 
 #binding.pry
