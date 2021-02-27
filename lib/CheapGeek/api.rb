@@ -13,13 +13,13 @@ class API
    def self.get_info(url)
     response = HTTParty.get(URL)
        info = JSON.parse(response.body)
-    info.collect do |data|
-        new_game = Game.new
-        new_game.title = data["title"]
-        new_game.genre = data["genre"]
-        new_game.description = data["short_description"]
-        new_game.release_date = data["release_date"]
-        new_game.game_url = data["game_url"]
+    info.each do |data|
+        Game.new(data["title"], 
+                data["genre"], 
+                data["short_description"], 
+                data ["release_date"], 
+                data["game_url"])
+        Genre.new(data["genre"], data["title"])
         binding.pry
         end   
     end
