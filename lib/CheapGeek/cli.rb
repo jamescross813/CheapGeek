@@ -13,7 +13,8 @@ class CLI
     end
 
     def genre_list
-        puts "there will be a list here"
+        binding.pry
+        @genre = Genre.all_genres
     end
 # ask for selection of genre
     def genre_menu 
@@ -34,7 +35,7 @@ class CLI
     end
 # return list of games with that catagory
     def game_list
-    puts "there will be a list here"
+    @game = Genre.games
     end
 # chose game from returned list
     def game_menu
