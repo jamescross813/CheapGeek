@@ -19,7 +19,7 @@ class CLI
     end
 # ask for selection of genre
     def genre_menu 
-            prompt.select("What do  you seek?", genre_list)
+            prompt.select("What do  you seek?", genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
     end
 # return list of games with that catagory
     def game_list
@@ -27,7 +27,7 @@ class CLI
     end
 # chose game from returned list
     def game_menu
-        prompt.select("What do you desire?", game_list)
+        prompt.select("What do you desire?", game_list, cycle: true, symbols: { marker: ">" }, filter: true)
     end
 # return information about requested game
     def game_info
