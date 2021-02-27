@@ -1,6 +1,7 @@
 require 'pry'
  
 class CLI
+    attr_accessor :genre, :game
 
     #  start with welcome
     def call 
@@ -13,7 +14,7 @@ class CLI
     end
 
     def genre_list
-        binding.pry
+       # binding.pry
         @genre = Genre.all_genres
     end
 # ask for selection of genre

@@ -1,6 +1,6 @@
 require 'pry'
  
-class Category
+class Genre
 
 attr_accessor :genre_name, :game_title
 
@@ -21,7 +21,7 @@ attr_accessor :genre_name, :game_title
     end
 
     def games
-        Game.all.select {|game| game.genre == self}
+        Game.all_games.select {|game| game.genre == self}
     end
 
     # create array of games that match catergory
