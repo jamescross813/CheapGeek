@@ -27,7 +27,7 @@ class API
     
 end
 
-binding.pry
+# binding.pry
 
 
-API.get_info("https://www.freetogame.com/api/games")
+# API.get_info("https://www.freetogame.com/api/games")

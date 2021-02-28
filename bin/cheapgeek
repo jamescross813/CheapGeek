@@ -2,9 +2,5 @@
 
 require_relative '../config/environment.rb'
 
-CLI.new
-API.new
-Game.new
-Genre.new
 
 
