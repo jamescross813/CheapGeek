@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-require './config/environment'
+require_relative '../config/environment.rb'
 
-# CLI.new.call
+CLI.new
+API.new
+Game.new
+Genre.new
+
 
