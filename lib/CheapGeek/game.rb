@@ -28,7 +28,5 @@ class Game
 
     
 
-    def self.new_game
-        
-    end
+    
 end
