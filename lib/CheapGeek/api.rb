@@ -13,10 +13,8 @@ attr_accessor :game, :genre
                 data["genre"], 
                 data["short_description"], 
                 data ["release_date"], 
-                data["game_url"])
-                
+                data["game_url"])    
         end   
-       
     end
     
 end

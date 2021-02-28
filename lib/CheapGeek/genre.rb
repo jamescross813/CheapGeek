@@ -1,9 +1,6 @@
 
 class Genre
-    def initialize
-        puts "in Genre class"
-
-    end
+    
 attr_accessor :genre_name, :game_title
 
 @@all_genres = []
@@ -11,7 +8,7 @@ attr_accessor :genre_name, :game_title
     def initialize(genre, title)
         @genre_name = genre
         @game_title = title
-        @@all_genres << 
+        @@all_genres << self 
     end
 
     def genre_name
@@ -24,9 +21,11 @@ attr_accessor :genre_name, :game_title
 
     def self.games
         Game.all_games.select {|game| game.genre == self}
-        
     end
 
+    def self.uniq_genres
+        self.all_genres.map {|genre| genre.}
+    end
    
 
 #    def new_game(title, short_description, release_date, game_url)

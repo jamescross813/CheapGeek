@@ -15,9 +15,9 @@ class CLI
     end
 
     def genre_list
-       
-        Genre.uniq_genre
-binding.pry
+        binding.pry
+    
+        Genre.uniq_genres
         
     end
 
