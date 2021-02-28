@@ -4,15 +4,17 @@ class Genre
 attr_accessor :genre_name, :game_title
 
 @@all_genres = []
+@@unique_genres = []
 
     def initialize(genre, title)
         @genre_name = genre
         @game_title = title
         @games = []
         @@all_genres << self 
+        # self.uniq_genres
     end
 
-    def genre_name
+    def self.genre_name
         @genre_name
     end
 
@@ -24,8 +26,14 @@ attr_accessor :genre_name, :game_title
         Game.all_games.select {|game| game.genre == self}
     end
 
-    def self.uniq_genres
-        self.all_genres.map {|genre| genre.}
+    def self.create
+        genre = self.new
+        genre.save
+        genre
+    end
+
+    def self.save
+        @@all_genres << self
     end
    
 
@@ -53,6 +61,25 @@ attr_accessor :genre_name, :game_title
     # def self.find_game_by_genre(name)
     #     self.all_genres.detect{|genre| genre.genre_name == self}
     # end
+
+    # def self.find_by_name
+        #     self.all.find{|genre| genre.genre_name == self}
+        #   end
+    
+        #   def self.create_by_name(genre_name)
+        #     genre = self.create
+        #     genre.name = genre
+        #     genre
+        #   end
+    
+    
+        # def self.find_or_create_by_name(genre)
+        #     if self.find_by_name(genre) #check to see if it already exists
+        #       self.find_by_name(genre) 
+        #     else 
+        #       self.create_by_name(genre) #creates new one if it doesn't exist
+        #    end
+        #   end
 
 end
 
