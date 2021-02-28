@@ -1,28 +1,33 @@
-require 'pry'
- 
+
 class Genre
     def initialize
         puts "in Genre class"
 
     end
-# attr_accessor :genre_name, :game_title
+attr_accessor :genre_name, :game_title
 
-# @@all_genres = []
+@@all_genres = []
 
-#     def initialize(genre, title)
-#         @genre_name = genre
-#         @game_title = title
-#         @@all_genres << self
+    def initialize(genre, title)
+        @genre_name = genre
+        @game_title = title
+        @@all_genres << 
+    end
 
-#     end
+    def genre_name
+        @genre_name
+    end
 
-#     def self.all_genres
-#         @@all_genres
-#     end
+    def self.all_genres
+        @@all_genres
+    end
 
-#     def self.games
-#         Game.all_games.select {|game| game.genre == self}
-#     end
+    def self.games
+        Game.all_games.select {|game| game.genre == self}
+        
+    end
+
+   
 
 #    def new_game(title, short_description, release_date, game_url)
 #     binding.pry
