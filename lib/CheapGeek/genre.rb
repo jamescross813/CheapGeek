@@ -8,6 +8,7 @@ attr_accessor :genre_name, :game_title
     def initialize(genre, title)
         @genre_name = genre
         @game_title = title
+        @games = []
         @@all_genres << self 
     end
 
@@ -28,14 +29,30 @@ attr_accessor :genre_name, :game_title
     end
    
 
-#    def new_game(title, short_description, release_date, game_url)
-#     binding.pry
-#     game = Game.new(title, genre= self, short_description, release_date, game_url)
-#    end
+    def add_game(game)
+    if game.genre == nil
+        game.genre = self
+        end
+        if !@games.include?(game)
+        @games << game
+        end
+    end
 
-#    def self.find_game_by_genre(name)
-#     self.all_genres.detect{|genre| genre.genre_name == name}
-#    end
+    # def genre_list
+    #     @new_array = []
+    #     @songs.each do |song|
+    #       if @new_array.include?(song.artist)
+    #         nil
+    #       else
+    #         @new_array << song.artist
+    #       end
+    #     end
+    #     @new_array
+    # end
+
+    # def self.find_game_by_genre(name)
+    #     self.all_genres.detect{|genre| genre.genre_name == self}
+    # end
 
 end
 
