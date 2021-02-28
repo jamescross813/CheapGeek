@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 require 'pry'
 require 'httparty'
-require './lib/CheapGeek/game.rb'
-require_relative './genre'
+require_relative './game.rb'
+require_relative './genre.rb'
 
 class API
-  
+#   attr_accessor :game, :genre
     def self.get_info(url)
     info = HTTParty.get("https://www.freetogame.com/api/games")
      
