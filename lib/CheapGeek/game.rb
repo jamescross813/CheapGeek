@@ -7,7 +7,7 @@ class Game
     @@all_games = []
 
     
-    def initialize(title, genre, short_description, release_date, game_url)
+    def initialize(title = nil, genre = nil, short_description = nil, release_date = nil, game_url = nil)
         @title = title
         @genre = genre
         @description = short_description

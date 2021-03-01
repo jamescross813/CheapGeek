@@ -6,6 +6,7 @@ class CLI
     
     #  start with welcome
     def call 
+        API.get_info
         puts "It's dangerous to go alone!"
         genre_list
         genre_menu
@@ -17,7 +18,7 @@ class CLI
     def genre_list
         binding.pry
     
-        Genre.uniq_genres
+        Genre.genre_name
         
     end
 

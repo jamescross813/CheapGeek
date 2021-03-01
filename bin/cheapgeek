@@ -3,7 +3,8 @@
 require_relative '../config/environment.rb'
 
 
-API.get_info
 CLI.new.call
+
+
 
 

@@ -4,14 +4,14 @@ class Genre
 attr_accessor :genre_name, :game_title
 
 @@all_genres = []
-@@unique_genres = []
 
-    def initialize(genre, title)
+
+    def initialize(genre= nil, title= nil)
         @genre_name = genre
         @game_title = title
-        @games = []
+       
         @@all_genres << self 
-        # self.uniq_genres
+        
     end
 
     def self.genre_name
@@ -24,6 +24,18 @@ attr_accessor :genre_name, :game_title
 
     def self.games
         Game.all_games.select {|game| game.genre == self}
+    end
+
+    def self.genres
+        genres = []
+        genres.map do |genre|
+        binding.pry
+        if genres.include?(self)
+            nil
+        else 
+            genres << genre
+        end
+    end
     end
 
     def self.create
