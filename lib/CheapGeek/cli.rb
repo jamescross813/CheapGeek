@@ -5,36 +5,39 @@ class CLI
     #  start with welcome
     def call 
         API.get_info
-        puts "It's dangerous to go alone!"
-        # genre_list
-        # genre_menu
-        game_list
+        puts "It's dangerous to go alone! Help us, help you to help yourself!"
+        genre_list
     end
 
-    # def genre_list
-    #     binding.pry
-    
-    #     Genre.all_genres
-        
-    # end
+    def genre_list
+        @genres = ["MMORPG", "Shooter", "MMO", "Social", "Card Game", "MOBA", "Fighting", "Strategy", "Racing", "Sports", "Fantasy", "Battle Royale", "Action RPG"]
+        genre_menu
+    end
 
 # ask for selection of genre
-    # def genre_menu 
-    #     genre_list = Genre.all_genres
-    #     prompt = TTY::Prompt.new
-    #         prompt.select("What do you seek?", genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
-    # end
+    def genre_menu 
+        prompt = TTY::Prompt.new
+            prompt.select("What do you seek?", @genres, cycle: true, symbols: { marker: ">" }, filter: true)
+            sleep (1)
+            game_list
+    end
 # return list of games with that catagory
 
-    def game_list
-        @game_list = Game.all_games
+def game_list
+        @genres.each do |genre| 
+            binding_pry
+            if genre.title == @choice
+                
+                @game_menu = []  
+                @game_list.each {|game| @game_menu << game.title}
+               puts @info
+               sleep (5)
         game_menu
     end
 
-# chose game from returned list
+# choose game from returned list
     def game_menu
-        @game_menu = []  
-        @game_list.each {|game| @game_menu << game.title}
+        
         prompt = TTY::Prompt.new
         @choice = prompt.select("What do you desire?", @game_menu, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
