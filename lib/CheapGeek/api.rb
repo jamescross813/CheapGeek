@@ -7,7 +7,7 @@ attr_accessor :game, :genre
      
     info.each do |data|
       
-       Genre.new(data["genre"], data["title"])
+#        Genre.new(data["genre"], data["title"])
              
         Game.new(data["title"], 
                 data["genre"], 
