@@ -35,7 +35,7 @@ class CLI
 
 # chose game from returned list
     def game_menu
-        @game_menu = []
+        @game_menu = []  
         @game_list.each {|game| @game_menu << game.title}
         prompt = TTY::Prompt.new
         @choice = prompt.select("What do you desire?", @game_menu, cycle: true, symbols: { marker: ">" }, filter: true)
@@ -43,12 +43,13 @@ class CLI
 
 # return information about requested game
     def game_info
-        @game_menu.find do |game|
-            if game == @choice
-                puts "some info"
-            binding.pry
-            end
+        @game_list.detect do |game| game == @choice
+               @info = "#{game.short_description} #{game.release_date} #{game.game_url}"  
+                 
         end
+        puts @info
+        @info.clear
+        binding.pry
     end
 
     def end_app
@@ -56,3 +57,4 @@ class CLI
     end
 
 end
+

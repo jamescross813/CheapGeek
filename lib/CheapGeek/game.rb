@@ -10,7 +10,7 @@ class Game
     def initialize(title = nil, genre = nil, short_description = nil, release_date = nil, game_url = nil)
         @title = title
         @genre = genre
-        @description = short_description
+        @short_description = short_description
         @release_date = release_date
         @game_url = game_url
         @@all_games << self
@@ -22,6 +22,13 @@ class Game
     
     def self.save
         @@all_games << self
+    end
+
+    def self.info
+        @genre
+        @short_description
+        @release_date
+        @game_url 
     end
 
     
