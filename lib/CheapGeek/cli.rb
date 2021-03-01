@@ -43,13 +43,18 @@ class CLI
 
 # return information about requested game
     def game_info
-        @game_list.detect do |game| game == @choice
-               @info = "#{game.short_description} #{game.release_date} #{game.game_url}"  
-                 
+        @game_list.each do |game| 
+            if game.title == @choice
+               
+               @info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
+               #binding.pry
+               puts @info
+            end
+            
         end
-        puts @info
-        @info.clear
-        binding.pry
+            
+        
+     
     end
 
     def end_app
