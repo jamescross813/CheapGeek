@@ -17,27 +17,29 @@ class CLI
 # ask for selection of genre
     def genre_menu 
         prompt = TTY::Prompt.new
-            prompt.select("What do you seek?", @genres, cycle: true, symbols: { marker: ">" }, filter: true)
+        @choice =  prompt.select("What do you seek?", @genres, cycle: true, symbols: { marker: ">" }, filter: true)
             sleep (1)
             game_list
     end
 # return list of games with that catagory
 
-def game_list
-        @genres.each do |genre| 
-            binding_pry
-            if genre.title == @choice
-                
-                @game_menu = []  
-                @game_list.each {|game| @game_menu << game.title}
-               puts @info
-               sleep (5)
-        game_menu
+    def game_list
+        @game_list = Game.all_games  
+         @game_menu = []
+         @game_list.each do |game|  
+            if game.genre == @choice
+                @game_menu << game.title
+             #binding.pry
+            end
+         end
+         sleep (1)
+         puts "Search and ye shall find...."
+         sleep (1)
+         game_menu
     end
 
 # choose game from returned list
     def game_menu
-        
         prompt = TTY::Prompt.new
         @choice = prompt.select("What do you desire?", @game_menu, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
@@ -57,10 +59,12 @@ def game_list
     end
 
     def waiting_menu
-        @waiting_menu = ["Return to games.", "Exit, pursued by bear."]
+        @waiting_menu = ["Return to genres.", "Return to games.", "Exit, pursued by bear."]
         prompt = TTY::Prompt.new
         @choice = prompt.select("Try and try again, right?!", @waiting_menu, cycle: true, symbols: { marker: ">" })
         if @choice == @waiting_menu[0]
+            genre_menu
+        elsif @choice == @waiting_menu[1]
             game_menu
         else
             end_app
