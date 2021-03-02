@@ -24,6 +24,16 @@ class Game
         @@all_games << self
     end
 
+    def self.find_by_genre  
+        @@game_menu = []
+        Game.all_games.each do |game|  
+            if game.genre == CLI.choice
+                @@game_menu << game.title
+            end
+        end
+        @@game_menu
+    end
+
     def self.info
         @genre
         @short_description

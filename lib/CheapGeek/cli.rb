@@ -1,13 +1,14 @@
 
 class CLI
 
-    attr_accessor :genre, :game
+    attr_accessor :genre, :game 
     #  start with welcome
+
+    @@choice = []
     def call 
         API.get_info
         puts "It's dangerous to go alone! Help us, help you to help yourself!"
         genre_menu
-
     end
 
     def prompt
@@ -17,39 +18,31 @@ class CLI
 # ask for selection of genre
     def genre_menu 
         prompt 
-        @choice =  prompt.select("What do you seek?", Genre.genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
-            sleep (1)
-            game_list
+        @@choice = prompt.select("What do you seek?", Genre.genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
+        sleep (1)
+        game_list
     end
 # return list of games with that catagory
 
     def game_list
-        @game_list = Game.all_games  
-         @game_menu = []
-         @game_list.each do |game|  
-            if game.genre == @choice
-                @game_menu << game.title
-             #binding.pry
-            end
-         end
-         sleep (1)
-         puts "Search and ye shall find...."
-         sleep (1)
-         game_menu
+        sleep (1)
+        puts "Search and ye shall find...."
+        sleep (1)
+        game_menu
     end
 
 # choose game from returned list
     def game_menu
         prompt 
-        @choice = prompt.select("What do you desire?", @game_menu, cycle: true, symbols: { marker: ">" }, filter: true)
+        @@choice = prompt.select("What do you desire?", Game.find_by_genre, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
         game_info
     end
 
 # return information about requested game
     def game_info
-        @game_list.each do |game| 
-            if game.title == @choice
+        Game.all_games.each do |game| 
+            if game.title == CLI.choice
                @info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
                puts @info
                sleep (3)
@@ -73,6 +66,10 @@ class CLI
 
     def end_app
         puts "If I don't see you around, I'll see you square."
+    end
+
+    def self.choice
+        @@choice
     end
 
 end
