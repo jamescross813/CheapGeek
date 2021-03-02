@@ -1,4 +1,3 @@
-
 class CLI
 
     attr_accessor :genre, :game 
@@ -42,7 +41,6 @@ class CLI
         if @@choice_menu == @menu[0]
             genre_menu
         elsif @@choice_menu == @menu[1]
-            # binding.pry
             game_menu
         else
             end_app
