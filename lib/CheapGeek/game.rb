@@ -2,7 +2,7 @@
 class Game
     
    
-    attr_accessor :title, :genre, :short_description, :release_date, :game_url, :cli
+    attr_reader :title, :genre, :short_description, :release_date, :game_url, :cli
    
     @@all_games = []
 
@@ -19,15 +19,11 @@ class Game
     def self.all_games
         @@all_games
     end
-    
-    def self.save
-        @@all_games << self
-    end
 
     def self.find_by_genre  
         @@game_menu = []
         Game.all_games.each do |game|  
-            if game.genre == CLI.choice
+            if game.genre == CLI.choice_genre
                 @@game_menu << game.title
             end
         end
@@ -36,9 +32,9 @@ class Game
 
     def self.info
         Game.all_games.each do |game| 
-            if game.title == CLI.choice
-               @info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
-               puts @info
+            if game.title == CLI.choice_game
+               @@info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
+               puts @@info
             end
         end
     end

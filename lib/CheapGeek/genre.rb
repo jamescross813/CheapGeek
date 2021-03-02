@@ -1,7 +1,7 @@
 
 class Genre
     
-attr_accessor :genre_name, :game_title
+attr_reader :genre_name, :game_title
 
 
 
@@ -30,8 +30,5 @@ attr_accessor :genre_name, :game_title
         @@genres
     end
 
-
-
 end
 
-# genre_list = ["MMORPG", "Shooter", "MMO", "Social", "Card Game", "MOBA", "Fighting", "Strategy", "Racing", "Sports", "Fantasy", "Battle Royale", "Action RPG"]

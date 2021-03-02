@@ -2,29 +2,18 @@
 class CLI
 
     attr_accessor :genre, :game 
-    #  start with welcome
 
-    @@choice = []
+    #  start with welcome
     def call 
         API.get_info
         puts "It's dangerous to go alone! Help us, help you to help yourself!"
         genre_menu
     end
 
-    def prompt
-        @prompt = TTY::Prompt.new
-    end
-
 # ask for selection of genre
     def genre_menu 
         prompt 
-        @@choice = prompt.select("What do you seek?", Genre.genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
-        sleep (1)
-        game_list
-    end
-# return list of games with that catagory
-
-    def game_list
+        @@choice_genre = prompt.select("What do you seek?", Genre.genre_list, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
         puts "Search and ye shall find...."
         sleep (1)
@@ -34,30 +23,26 @@ class CLI
 # choose game from returned list
     def game_menu
         prompt 
-        @@choice = prompt.select("What do you desire?", Game.find_by_genre, cycle: true, symbols: { marker: ">" }, filter: true)
+        @@choice_game = prompt.select("What do you desire?", Game.find_by_genre, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
         game_info
     end
 
 # return information about requested game
     def game_info
-        Game.all_games.each do |game| 
-            if game.title == CLI.choice
-               @info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
-               puts @info
-               sleep (3)
-               waiting_menu
-            end
-        end
+        Game.info
+        sleep (3)
+        waiting_menu
     end
 
     def waiting_menu
-        @waiting_menu = ["Return to genres.", "Return to games.", "Exit, pursued by bear."]
+        @menu = ["Return to genres.", "Return to games.", "Exit, pursued by bear."]
         prompt
-        @choice = prompt.select("Try and try again, right?!", @waiting_menu, cycle: true, symbols: { marker: ">" })
-        if @choice == @waiting_menu[0]
+        @@choice_menu = prompt.select("Try and try again, right?!", @menu, cycle: true, symbols: { marker: ">" })
+        if @@choice_menu == @menu[0]
             genre_menu
-        elsif @choice == @waiting_menu[1]
+        elsif @@choice_menu == @menu[1]
+            # binding.pry
             game_menu
         else
             end_app
@@ -65,11 +50,24 @@ class CLI
     end
 
     def end_app
+        sleep (1)
         puts "If I don't see you around, I'll see you square."
     end
 
-    def self.choice
-        @@choice
+    def self.choice_genre
+        @@choice_genre
+    end
+
+    def self.choice_game
+        @@choice_game
+    end
+
+    def self.choice_menu
+        @@choice_menu
+    end
+
+    def prompt
+        @prompt = TTY::Prompt.new
     end
 
 end
