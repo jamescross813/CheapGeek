@@ -35,10 +35,12 @@ class Game
     end
 
     def self.info
-        @genre
-        @short_description
-        @release_date
-        @game_url 
+        Game.all_games.each do |game| 
+            if game.title == CLI.choice
+               @info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
+               puts @info
+            end
+        end
     end
 
     
