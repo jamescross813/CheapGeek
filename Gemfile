@@ -6,12 +6,9 @@ source "https://rubygems.org"
 
 #gemspec
 
-gem 'pry'
-gem 'awesome_print'
-gem 'open-uri'
 
-gem 'rspec'
-gem "tty-prompt"
+gem 'httparty'
+gem 'tty-prompt'
 # gem 'bundle install'
 
 

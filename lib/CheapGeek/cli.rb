@@ -3,9 +3,13 @@ class CLI
     attr_accessor :genre, :game 
 
     #  start with welcome
-    def call 
+    def start 
         API.get_info
         puts "It's dangerous to go alone! Help us, help you to help yourself!"
+        
+        sleep (1)
+        puts "...."
+        sleep (1)
         genre_menu
     end
 
@@ -30,17 +34,17 @@ class CLI
 # return information about requested game
     def game_info
         Game.info
-        sleep (3)
+        sleep (2)
         waiting_menu
     end
 
     def waiting_menu
-        @menu = ["Return to genres.", "Return to games.", "Exit, pursued by bear."]
+        menu = ["Return to genres.", "Return to games.", "Exit, pursued by bear."]
         prompt
-        @@choice_menu = prompt.select("Try and try again, right?!", @menu, cycle: true, symbols: { marker: ">" })
-        if @@choice_menu == @menu[0]
+        @@choice_menu = prompt.select("Try and try again, right?!", menu, cycle: true, symbols: { marker: ">" })
+        if CLI.choice_menu == menu[0]
             genre_menu
-        elsif @@choice_menu == @menu[1]
+        elsif CLI.choice_menu == menu[1]
             game_menu
         else
             end_app

@@ -30,8 +30,12 @@ class Game
     def self.info
         self.all_games.each do |game| 
             if game.title == CLI.choice_game
-               @@info = "#{game.short_description} #{game.release_date} #{game.game_url}" 
-               puts @@info
+               sleep (1)
+               puts "#{game.short_description}" 
+               sleep (1)
+               puts "#{game.release_date}"
+               sleep (1)
+               puts "#{game.game_url}"
             end
         end
     end

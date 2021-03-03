@@ -3,7 +3,7 @@
 require_relative '../config/environment.rb'
 
 
-CLI.new.call
+CLI.new.start
 
 
 
