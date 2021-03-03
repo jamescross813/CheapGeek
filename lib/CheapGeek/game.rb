@@ -19,7 +19,7 @@ class Game
 
     def self.find_by_genre  
         game_menu = []
-        self.all_games.each do |game|  
+        self.all_games.find_all do |game|  
             if game.genre == CLI.choice_genre
                 game_menu << game.title
             end
@@ -28,7 +28,7 @@ class Game
     end
 
     def self.info
-        self.all_games.each do |game| 
+        self.all_games.collect do |game| 
             if game.title == CLI.choice_game
                sleep (1)
                puts "#{game.short_description}" 
