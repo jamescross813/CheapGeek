@@ -18,13 +18,13 @@ class Game
     end
 
     def self.find_by_genre  
-        @@game_menu = []
+        game_menu = []
         self.all_games.each do |game|  
             if game.genre == CLI.choice_genre
-                @@game_menu << game.title
+                game_menu << game.title
             end
         end
-        @@game_menu
+        game_menu
     end
 
     def self.info

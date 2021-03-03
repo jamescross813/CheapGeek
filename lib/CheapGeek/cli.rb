@@ -53,7 +53,8 @@ class CLI
 
     def end_app
         sleep (1)
-        puts "If I don't see you around, I'll see you square."
+        puts "If I don't see you around, I'll see you square!"
+        sleep(1)
     end
 
     def self.choice_genre

@@ -18,13 +18,13 @@ attr_reader :genre_name, :game_title
     end
 
     def self.genre_list
-        @@genres = []
+        genres = []
         self.all_genres.each do |genre|
-            unless @@genres.include?(genre.genre_name)
-                @@genres << genre.genre_name
+            unless genres.include?(genre.genre_name)
+                genres << genre.genre_name
             end
         end
-        @@genres
+        genres
     end
 
 end

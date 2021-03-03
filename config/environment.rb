@@ -1,8 +1,4 @@
-require "pry"
-require "awesome_print"
-require "open-uri"
 require "httparty"
-require "rspec"
 require "tty-prompt"
 
 
