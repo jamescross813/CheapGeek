@@ -9,10 +9,6 @@ attr_reader :genre_name, :game_title
         @@all_genres << self
     end
 
-    def self.genre_name
-        @genre_name
-    end
-
     def self.all_genres
         @@all_genres
     end
