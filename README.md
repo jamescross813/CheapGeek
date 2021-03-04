@@ -1,22 +1,8 @@
 # CheapGeek
 
-CheapGeek is a Ruby Gem for the PC Gaming enthustasit on a budget. It's expensive enough to buy the computer, included in this app is a range of free to play games organized by genre. The source mateiral from the informationcomes from FreeToPlay API. 
+CheapGeek is a Ruby Gem for the PC Gaming enthustasit on a budget. It's expensive enough to buy the computer, included in this app is a range of free to play games organized by genre. The source material from the information comes from FreeToPlay API. 
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-$ gem install CheapGeek
-
-```ruby
-gem 'CheapGeek'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
 
     $ gem install CheapGeek
 

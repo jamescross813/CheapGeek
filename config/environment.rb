@@ -1,6 +1,5 @@
 require "httparty"
 require "tty-prompt"
-require 'pry'
 
 require_relative '../lib/CheapGeek/version.rb'
 require_relative '../lib/CheapGeek/genre.rb'
