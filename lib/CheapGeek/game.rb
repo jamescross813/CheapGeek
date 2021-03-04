@@ -10,6 +10,7 @@ class Game
         @short_description = short_description
         @release_date = release_date
         @game_url = game_url
+        Genre.find_or_create_by_name(genre, title)
         @@all_games << self
     end
 
@@ -18,24 +19,24 @@ class Game
     end
 
     def self.find_by_genre  
-        game_menu = []
-        self.all_games.find_all do |game|  
+        @game_menu = []
+        self.all_games.each do |game|  
             if game.genre == CLI.choice_genre
-                game_menu << game.title
+                @game_menu << game.title
             end
         end
-        game_menu
+        @game_menu
     end
 
-    def self.info
+    def self.info  #include labels
         self.all_games.collect do |game| 
             if game.title == CLI.choice_game
                sleep (1)
-               puts "#{game.short_description}" 
+               puts "Game Description: #{game.short_description}" 
                sleep (1)
-               puts "#{game.release_date}"
+               puts "Release Date: #{game.release_date}"
                sleep (1)
-               puts "#{game.game_url}"
+               puts "URL: #{game.game_url}"
             end
         end
     end
