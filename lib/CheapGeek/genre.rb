@@ -15,7 +15,15 @@ class Genre
         self.all_genres.detect{|genre_name| genre_name == genre.strip}
     end
     
-
+    def self.games
+        @games = []
+        Game.all_games.each do |game|  
+            if game.genre == CLI.choice_genre
+                @games << game.title
+            end
+        end
+        @games
+    end
 
     def self.genre_name
         @genre_name
