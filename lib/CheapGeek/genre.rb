@@ -1,6 +1,6 @@
 class Genre
     
-attr_reader :genre
+
 
 @@all_genres = []
 
