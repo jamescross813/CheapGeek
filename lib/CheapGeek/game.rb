@@ -17,6 +17,7 @@ class Game
     def self.all_games
         @@all_games
     end
+<<<<<<< HEAD
     
     def self.games
         @games = []
@@ -37,5 +38,7 @@ class Game
         end
         @genres
     end
+=======
+>>>>>>> 8d35cb5245007ed512f67b42c83d0088b67c3647
 
 end
