@@ -4,6 +4,7 @@ class Game
    
     @@all_games = []
     
+    
     def initialize(title = nil, genre = nil, short_description = nil, release_date = nil, game_url = nil)
         @title = title
         @genre = genre
@@ -11,25 +12,30 @@ class Game
         @release_date = release_date
         @game_url = game_url
         @@all_games << self
-        Genre.find_or_create_by_name(genre)
     end
 
     def self.all_games
         @@all_games
     end
-
-    def self.find_by_genre  
-        @game_menu = []
+    
+    def self.games
+        @games = []
         self.all_games.each do |game|  
             if game.genre == CLI.choice_genre
-                @game_menu << game.title
+                @games << game.title
             end
         end
-        @game_menu
-    end
-
-    def self.info  
-        
+        @games
     end
     
+    def self.genres
+        @genres = []
+        self.all_games.each do |game|  
+            unless @genres.include?(game.genre.strip)
+                @genres << game.genre
+            end
+        end
+        @genres
+    end
+
 end
