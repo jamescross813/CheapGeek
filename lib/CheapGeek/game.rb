@@ -1,16 +1,15 @@
 class Game
    
-    attr_reader :title, :genre, :short_description, :release_date, :game_url, :cli
+    attr_reader :title, :genre, :short_description, :release_date, :game_url
    
     @@all_games = []
     
     def initialize(title = nil, genre = nil, short_description = nil, release_date = nil, game_url = nil)
         @title = title
-        @genre = genre
+        @genre = Genre.find_or_create_by_name(genre)
         @short_description = short_description
         @release_date = release_date
         @game_url = game_url
-        Genre.find_or_create_by_name(genre, title)
         @@all_games << self
     end
 
@@ -28,17 +27,8 @@ class Game
         @game_menu
     end
 
-    def self.info  #include labels
-        self.all_games.collect do |game| 
-            if game.title == CLI.choice_game
-               sleep (1)
-               puts "Game Description: #{game.short_description}" 
-               sleep (1)
-               puts "Release Date: #{game.release_date}"
-               sleep (1)
-               puts "URL: #{game.game_url}"
-            end
-        end
+    def self.info  
+        
     end
     
 end

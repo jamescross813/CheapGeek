@@ -1,7 +1,6 @@
 
 class API
     
-attr_accessor :game, :genre
     def self.get_info
         info = HTTParty.get("https://www.freetogame.com/api/games")
         info.each do |data|
@@ -16,7 +15,7 @@ attr_accessor :game, :genre
     
 end
 
-# binding.pry
+
 
 
 

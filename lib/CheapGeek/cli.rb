@@ -1,7 +1,5 @@
 class CLI
 
-    attr_accessor :genre, :game 
-
     def start 
         API.get_info
         puts "It's dangerous to go alone! Help us, help you to help yourself!"
@@ -28,7 +26,16 @@ class CLI
     end
 
     def game_info
-        Game.info
+        Game.all_games.collect do |game| 
+            if game.title == CLI.choice_game
+               sleep (1)
+               puts "Game Description: #{game.short_description}" 
+               sleep (1)
+               puts "Release Date: #{game.release_date}"
+               sleep (1)
+               puts "URL: #{game.game_url}"
+            end
+        end
         sleep (2)
         waiting_menu
     end
