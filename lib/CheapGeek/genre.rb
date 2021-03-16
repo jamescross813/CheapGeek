@@ -1,6 +1,4 @@
 class Genre
-    
-
 
 @@all_genres = []
 
@@ -16,13 +14,15 @@ class Genre
     def self.find_by_name(genre)
         self.all_genres.detect{|genre_name| genre_name == genre.strip}
     end
+    
 
-    def self.all_genres
-        @@all_genres
-    end
 
     def self.genre_name
         @genre_name
+    end
+    
+    def self.all_genres
+        @@all_genres
     end
 
 end

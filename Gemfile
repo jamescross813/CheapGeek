@@ -8,7 +8,7 @@ source "https://rubygems.org"
 
 
 
-
+gem "pry"
 gem 'httparty'
 gem 'tty-prompt'
 # gem 'bundle install'

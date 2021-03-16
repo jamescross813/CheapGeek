@@ -10,7 +10,6 @@ class CLI
     end
 
     def genre_menu 
-        prompt 
         @@choice_genre = prompt.select("What do you seek? Scroll for more options...", Genre.all_genres, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
         puts "Search and ye shall find...."
@@ -18,8 +17,7 @@ class CLI
         game_menu
     end
 
-    def game_menu
-        prompt         
+    def game_menu    
         @@choice_game = prompt.select("What do you desire? Scroll for more choices...", Game.find_by_genre, cycle: true, symbols: { marker: ">" }, filter: true)
         sleep (1)
         game_info
