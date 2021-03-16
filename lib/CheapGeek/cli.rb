@@ -18,11 +18,7 @@ class CLI
     end
 
     def game_menu    
-<<<<<<< HEAD
         @@choice_game = prompt.select("What do you desire? Scroll for more choices...", Game.games, cycle: true, symbols: { marker: ">" }, filter: true)
-=======
-        @@choice_game = prompt.select("What do you desire? Scroll for more choices...", Genre.games, cycle: true, symbols: { marker: ">" }, filter: true)
->>>>>>> 8d35cb5245007ed512f67b42c83d0088b67c3647
         sleep (1)
         game_info
     end
