@@ -12,6 +12,16 @@ class Game
         @game_url = game_url
         @@all_games << self
     end
+
+    def self.genres
+        @genres = []
+        self.all_games.each do |game|  
+            unless @genres.include?(game.genre.strip)
+                @genres << game.genre
+            end
+        end
+        @genres
+    end
     
     def self.games
         @games = []
@@ -21,16 +31,6 @@ class Game
             end
         end
         @games
-    end
-    
-    def self.genres
-        @genres = []
-        self.all_games.each do |game|  
-            unless @genres.include?(game.genre.strip)
-                @genres << game.genre
-            end
-        end
-        @genres
     end
 
     def self.all_games
