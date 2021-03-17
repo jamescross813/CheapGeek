@@ -4,7 +4,6 @@ class Game
    
     @@all_games = []
     
-    
     def initialize(title = nil, genre = nil, short_description = nil, release_date = nil, game_url = nil)
         @title = title
         @genre = genre
@@ -12,10 +11,6 @@ class Game
         @release_date = release_date
         @game_url = game_url
         @@all_games << self
-    end
-
-    def self.all_games
-        @@all_games
     end
     
     def self.games
@@ -36,6 +31,10 @@ class Game
             end
         end
         @genres
+    end
+
+    def self.all_games
+        @@all_games
     end
 
 end
